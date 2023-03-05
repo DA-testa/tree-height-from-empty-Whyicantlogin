@@ -10,20 +10,26 @@ def compute_height(n, parents):
         if parent != -1:
             children[parent].append(child)
     
-    def get_height(s):
-        if not children[s]:
+    def get_height(p):
+        if not children[p]:
             return 1
+        
+
+
+
+
         else:
-            return 1 + max(get_height(child) for child in children[s])
+            return 1 + max(get_height(child) for child in children[p])
     
-    sakne = parents.index(-1)
-    return get_height(sakne)
+
+    s = parents.index(-1)
+    return get_height(s)
     
 
 
 def main():
     user = input("'I' for input, 'F' for file: ")
-    if "I" in user:
+    if user == "I":
         n = int(input())
         parents = list(map(int, input().split()))
 
@@ -32,7 +38,7 @@ def main():
         fileName = input("File name: ")
         folder = path + fileName
     
-        if 'a' in fileName:
+        if user == "F":
             print("File can not contain letter 'a' ")
             return
         try:
@@ -64,3 +70,4 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
+
