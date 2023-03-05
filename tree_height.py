@@ -29,28 +29,37 @@ def compute_height(n, parents):
 
 def main():
     user = input("'I' for input, 'F' for file: ")
-    if user == "I":
+    if user_input == "I":
         n = int(input())
         parents = list(map(int, input().split()))
 
-    elif "F" in user:
+    elif user_input == "F":
         path = './test/'
         fileName = input("File name: ")
         folder = path + fileName
     
-        if user == "F":
+        if 'a' in fileName:
             print("File can not contain letter 'a' ")
             return
+        
+        
         try:
             with open(folder, 'r', encoding='utf-8') as file:
                 n = int(file.readline())
                 parents = list(map(int, file.readline().split()))
+                
+                
+                
         except FileNotFoundError:
             print("File not found")
             return
         except ValueError:
             print("Invalid input format")
             return
+        
+        
+        
+        
     else:
         print("Type 'I' or 'F': ")
         return 
