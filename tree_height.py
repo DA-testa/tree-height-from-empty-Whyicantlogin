@@ -29,11 +29,11 @@ def compute_height(n, parents):
 
 def main():
     user = input("'I' for input, 'F' for file: ")
-    if user_input == "I":
+    if user == "I":
         n = int(input())
         parents = list(map(int, input().split()))
 
-    elif user_input == "F":
+    elif user == "F":
         path = './test/'
         fileName = input("File name: ")
         folder = path + fileName
