@@ -32,7 +32,7 @@ def compute_height(n, parents):
 
 def main():
    # implement input form keyboard and from file
-    user = input("'I' for input, 'F' for file: ")
+    user = input()
     
     # ja user izvēlas manuāla ievadīt datus
     if "I" in user:
@@ -43,11 +43,11 @@ def main():
     elif "F" in user:
     # noteikt failu ceļu un nosaukmus uz mapē
         path = './test/' 
-        fileName = input("File name: ")
+        fileName = input("File Name: ")
         folder = path + fileName
     # let user input file name to use, don't allow file names with letter a
         if 'a' in fileName:
-            print("File can not contain letter 'a' ")
+            print("File don't allow file names with letter a ")
             return
         
        # meģināt atvert filu un nolasīt punktus un parents sk.  
@@ -69,7 +69,7 @@ def main():
         
      # call the function and output it's result   
     else:
-        print("Type 'I' or 'F': ")
+        print(" I or F: ")
         return 
     print(compute_height(n, parents)) #izvade
 
